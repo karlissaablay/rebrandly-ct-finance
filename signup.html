@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - VaultSecure</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="tour.css">
+  <!-- REBRANDLY CONVERSION TRACKING -->
+  <script src="https://cdn.test.rebrandly.com/sdk/v1/rbly.min.js" data-api-key="433200b2fd6141da82f1bd3d49b8dce8"></script>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <svg viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="6" fill="#1e3a5f"/><path d="M14 7v6l4 4" stroke="#d4a843" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="14" cy="14" r="7" stroke="#fff" stroke-width="2"/></svg>
+        VaultSecure
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="features.html">Features</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="solutions.html">Solutions</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Signup Form -->
+  <section class="form-page">
+    <div class="container">
+      <div class="form-wrapper">
+        <h1>Start your free trial</h1>
+        <p>No credit card required. SOC 2 certified from day one.</p>
+
+        <form id="signup-form" action="thank-you.html" method="GET">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="first-name">First name</label>
+              <input type="text" id="first-name" name="first_name" placeholder="Robert" required>
+            </div>
+            <div class="form-group">
+              <label for="last-name">Last name</label>
+              <input type="text" id="last-name" name="last_name" placeholder="Mitchell" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Work email</label>
+            <input type="email" id="email" name="email" placeholder="robert@heritagenational.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="company">Company name</label>
+            <input type="text" id="company" name="company" placeholder="Heritage National Bank">
+          </div>
+
+          <div class="form-group">
+            <label for="industry">Industry</label>
+            <select id="industry" name="industry">
+              <option value="">Select your industry</option>
+              <option value="Retail Banking">Retail Banking</option>
+              <option value="Insurance">Insurance</option>
+              <option value="Wealth Management">Wealth Management</option>
+              <option value="Credit Union">Credit Union</option>
+              <option value="Mortgage">Mortgage Lending</option>
+              <option value="Other">Other Financial Services</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="plan">Plan</label>
+            <select id="plan" name="plan">
+              <option value="starter">Starter (Free)</option>
+              <option value="business" selected>Business ($299/mo)</option>
+              <option value="enterprise">Enterprise (Contact Sales)</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-large">Create Account</button>
+        </form>
+
+        <div class="form-footer">
+          Already have an account? <a href="#">Sign in</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="app.js"></script>
+  <script src="tour.js"></script>
+</body>
+</html>
