@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VaultSecure - Secure Financial Solutions for the Digital Age</title>
+  <title>VaultSecure - Banking That Actually Works for You</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="tour.css">
   <!-- REBRANDLY CONVERSION TRACKING -->
@@ -20,10 +20,10 @@
       </a>
       <ul class="nav-links">
         <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="features.html">Features</a></li>
-        <li><a href="pricing.html">Pricing</a></li>
-        <li><a href="solutions.html">Solutions</a></li>
-        <li><a href="signup.html" class="btn btn-primary">Get Started</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="rates.html">Rates</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="signup.html" class="btn btn-primary">Open an Account</a></li>
       </ul>
     </div>
   </nav>
@@ -31,76 +31,90 @@
   <!-- Hero -->
   <section class="hero">
     <div class="container">
-      <h1>Secure financial solutions <span>built for the digital age</span></h1>
-      <p>VaultSecure empowers financial institutions with enterprise-grade digital onboarding, claims processing, and compliance tools. Trusted by 1,200+ institutions worldwide.</p>
+      <h1>Banking that actually <span>works for you</span></h1>
+      <p>No hidden fees. No surprise charges. Just a high-yield savings account, cashback checking, and insurance that makes sense. All in one place.</p>
       <div class="hero-actions">
-        <a href="signup.html" class="btn btn-primary btn-large">Get Started Free</a>
-        <a href="features.html" class="btn btn-secondary btn-large">Explore Platform</a>
+        <a href="signup.html" class="btn btn-primary btn-large" data-cta="open-account">Open an Account</a>
+        <a href="signup.html" class="btn btn-accent btn-large" data-cta="get-quote">Get a Quote</a>
+      </div>
+      <div class="hero-trust">
+        <span class="trust-badge"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1L2 4v4c0 3.5 2.6 6.4 6 7 3.4-.6 6-3.5 6-7V4L8 1z" fill="#10b981"/><path d="M6 8l2 2 3-3" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> FDIC Insured</span>
+        <span class="trust-badge"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="6" width="12" height="8" rx="1.5" stroke="#d4a843" stroke-width="1.5"/><path d="M5 6V4a3 3 0 016 0v2" stroke="#d4a843" stroke-width="1.5"/></svg> 256-bit Encrypted</span>
+        <span class="trust-badge"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#1e3a5f" stroke-width="1.5"/><path d="M6 8l2 2 3-3" stroke="#1e3a5f" stroke-width="1.5" stroke-linecap="round"/></svg> SOC 2 Type II</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Cards -->
+  <section class="section" id="products-preview">
+    <div class="container">
+      <div class="section-header">
+        <h2>Everything you need, nothing you don't</h2>
+        <p>Simple banking and insurance products designed for real people.</p>
+      </div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="4" y="8" width="24" height="16" rx="3" stroke="#1e3a5f" stroke-width="2"/><line x1="4" y1="14" x2="28" y2="14" stroke="#1e3a5f" stroke-width="2"/><circle cx="22" cy="20" r="2" fill="#d4a843"/></svg>
+          </div>
+          <h3>Checking Account</h3>
+          <div class="product-highlight">1.5% cashback on all purchases</div>
+          <p>No monthly fees, no minimums, no overdraft charges. Free ATM access at 60,000+ locations nationwide.</p>
+          <a href="products.html" class="product-link">Learn More &rarr;</a>
+        </div>
+        <div class="product-card">
+          <div class="product-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 4v24M8 10l8-6 8 6M6 10h20v18H6z" stroke="#1e3a5f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="12" y="20" width="8" height="8" stroke="#d4a843" stroke-width="2"/></svg>
+          </div>
+          <h3>High-Yield Savings</h3>
+          <div class="product-highlight">4.25% APY</div>
+          <p>Earn 10x the national average. No minimum balance. Interest compounded daily, paid monthly. Your money works while you sleep.</p>
+          <a href="products.html" class="product-link">Learn More &rarr;</a>
+        </div>
+        <div class="product-card">
+          <div class="product-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="18" r="10" stroke="#1e3a5f" stroke-width="2"/><path d="M16 8V6M10 10l-2-2M22 10l2-2" stroke="#1e3a5f" stroke-width="2" stroke-linecap="round"/><rect x="12" y="16" width="8" height="6" rx="1" fill="#d4a843" opacity="0.3"/><path d="M12 18h8" stroke="#d4a843" stroke-width="2"/></svg>
+          </div>
+          <h3>Auto Insurance</h3>
+          <div class="product-highlight">From $29/mo</div>
+          <p>Get a quote in 60 seconds. Comprehensive coverage, roadside assistance, and accident forgiveness included at no extra cost.</p>
+          <a href="products.html" class="product-link">Learn More &rarr;</a>
+        </div>
+        <div class="product-card">
+          <div class="product-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M6 28V10l10-6 10 6v18" stroke="#1e3a5f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="12" y="18" width="8" height="10" stroke="#1e3a5f" stroke-width="2"/><path d="M16 4v4" stroke="#d4a843" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Home Insurance</h3>
+          <div class="product-highlight">From $45/mo</div>
+          <p>Full replacement cost coverage. Protects your home, belongings, and liability. Bundle with auto and save 15%.</p>
+          <a href="products.html" class="product-link">Learn More &rarr;</a>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Stats -->
-  <section class="section">
-    <div class="container">
-      <div class="stats-row">
-        <div class="stat">
-          <h3>1,200+</h3>
-          <p>Financial institutions</p>
-        </div>
-        <div class="stat">
-          <h3>$4.2B</h3>
-          <p>Assets managed</p>
-        </div>
-        <div class="stat">
-          <h3>99.99%</h3>
-          <p>Platform uptime</p>
-        </div>
-        <div class="stat">
-          <h3>SOC 2</h3>
-          <p>Certified</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Features Overview -->
   <section class="section section-alt">
     <div class="container">
       <div class="section-header">
-        <h2>Everything your institution needs to modernize</h2>
-        <p>From onboarding to compliance, VaultSecure provides the complete digital infrastructure for financial services.</p>
+        <h2>Why 500,000+ customers trust us</h2>
       </div>
-      <div class="feature-grid">
-        <div class="feature-card">
-          <div class="feature-icon">&#128196;</div>
-          <h3>Digital Account Opening</h3>
-          <p>Streamline new account creation with digital identity verification, e-signatures, and automated KYC/AML checks. Reduce onboarding time from days to minutes.</p>
+      <div class="stats-row">
+        <div class="stat">
+          <h3>$2.1B</h3>
+          <p>In customer deposits</p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">&#128203;</div>
-          <h3>Claims Processing</h3>
-          <p>Automate insurance claims intake, adjudication, and settlement. AI-powered document extraction and fraud scoring reduce processing costs by 40%.</p>
+        <div class="stat">
+          <h3>4.9/5</h3>
+          <p>App Store rating</p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">&#128202;</div>
-          <h3>Risk Assessment</h3>
-          <p>Real-time credit scoring, portfolio risk analysis, and stress testing tools. Make data-driven lending and underwriting decisions with confidence.</p>
+        <div class="stat">
+          <h3>$0</h3>
+          <p>Hidden fees, ever</p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">&#128220;</div>
-          <h3>Compliance Dashboard</h3>
-          <p>Stay ahead of regulatory requirements with automated compliance monitoring, audit trail generation, and real-time reporting for FINRA, OCC, and state regulators.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">&#128100;</div>
-          <h3>Customer Portal</h3>
-          <p>White-labeled digital portal for your customers to manage accounts, submit documents, track applications, and communicate securely with your team.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">&#128274;</div>
-          <h3>Fraud Detection</h3>
-          <p>Machine learning-powered fraud detection with real-time transaction monitoring, anomaly detection, and configurable alert thresholds. Protect your customers and your institution.</p>
+        <div class="stat">
+          <h3>$250K</h3>
+          <p>FDIC insured per depositor</p>
         </div>
       </div>
     </div>
@@ -110,37 +124,40 @@
   <section class="section">
     <div class="container">
       <div class="section-header">
-        <h2>Trusted by financial leaders</h2>
-        <p>See why over 1,200 financial institutions rely on VaultSecure to power their digital transformation.</p>
+        <h2>What our customers say</h2>
+        <p>Real stories from people who switched to VaultSecure.</p>
       </div>
       <div class="testimonial-grid">
         <div class="testimonial-card">
-          <blockquote>"VaultSecure cut our account opening time from 3 days to 12 minutes. Our branch managers can now focus on relationships instead of paperwork."</blockquote>
+          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote>"I was paying $15/month just to have a checking account at my old bank. VaultSecure charges nothing and I actually earn cashback. I've saved over $400 this year between dropped fees and rewards."</blockquote>
           <div class="testimonial-author">
-            <div class="testimonial-avatar">RM</div>
+            <div class="testimonial-avatar">JM</div>
             <div>
-              <div class="testimonial-name">Robert Mitchell</div>
-              <div class="testimonial-role">SVP Retail Banking, Heritage National Bank</div>
+              <div class="testimonial-name">Jessica Martinez</div>
+              <div class="testimonial-role">Customer since 2024</div>
             </div>
           </div>
         </div>
         <div class="testimonial-card">
-          <blockquote>"Our claims processing costs dropped 38% in the first quarter. The AI-powered fraud scoring alone has saved us $2.4M in fraudulent payouts this year."</blockquote>
+          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote>"The 4.25% APY on savings is real. I moved my emergency fund over and I'm earning $180/month in interest instead of the $3 I was getting at my old bank. The app is beautiful too."</blockquote>
           <div class="testimonial-author">
-            <div class="testimonial-avatar">LP</div>
+            <div class="testimonial-avatar">DK</div>
             <div>
-              <div class="testimonial-name">Linda Park</div>
-              <div class="testimonial-role">Director of Claims, Pacific Shield Insurance</div>
+              <div class="testimonial-name">David Kim</div>
+              <div class="testimonial-role">Customer since 2023</div>
             </div>
           </div>
         </div>
         <div class="testimonial-card">
-          <blockquote>"During our last OCC exam, auditors were impressed with the compliance dashboard. What used to take weeks of prep now takes a single click to generate."</blockquote>
+          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote>"Switched my auto insurance and saved $600/year. The claims process was painless when I had a fender bender — filed on the app and had a check in 3 days. No phone calls, no runaround."</blockquote>
           <div class="testimonial-author">
-            <div class="testimonial-avatar">DC</div>
+            <div class="testimonial-avatar">SP</div>
             <div>
-              <div class="testimonial-name">David Chen</div>
-              <div class="testimonial-role">Chief Compliance Officer, Summit Credit Union</div>
+              <div class="testimonial-name">Sarah Patel</div>
+              <div class="testimonial-role">Customer since 2024</div>
             </div>
           </div>
         </div>
@@ -148,12 +165,12 @@
     </div>
   </section>
 
-  <!-- CTA -->
+  <!-- CTA Banner -->
   <section class="cta-banner">
     <div class="container">
-      <h2>Ready to modernize your institution?</h2>
-      <p>Join 1,200+ financial institutions already building the future of banking and insurance.</p>
-      <a href="signup.html" class="btn btn-primary btn-large">Get Started Today</a>
+      <h2>Open your account in 5 minutes</h2>
+      <p>No paperwork. No branch visit. Just a few taps and you're in.</p>
+      <a href="signup.html" class="btn btn-primary btn-large" data-cta="open-account-cta">Open an Account</a>
     </div>
   </section>
 
@@ -166,35 +183,36 @@
             <svg viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="6" fill="#1e3a5f"/><path d="M14 7v6l4 4" stroke="#d4a843" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="14" cy="14" r="7" stroke="#fff" stroke-width="2"/></svg>
             VaultSecure
           </div>
-          <p>Enterprise-grade financial technology for digital onboarding, claims processing, and regulatory compliance. SOC 2 certified.</p>
+          <p>Banking and insurance for people who are tired of hidden fees and confusing policies. FDIC insured up to $250,000.</p>
         </div>
         <div>
-          <h4>Platform</h4>
+          <h4>Products</h4>
           <ul>
-            <li><a href="features.html">Features</a></li>
-            <li><a href="pricing.html">Pricing</a></li>
-            <li><a href="solutions.html">Solutions</a></li>
+            <li><a href="products.html">Checking</a></li>
+            <li><a href="products.html">Savings</a></li>
+            <li><a href="products.html">Auto Insurance</a></li>
+            <li><a href="products.html">Home Insurance</a></li>
           </ul>
         </div>
         <div>
           <h4>Company</h4>
           <ul>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Security</a></li>
-            <li><a href="#">Compliance</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="about.html">Security</a></li>
+            <li><a href="rates.html">Rates</a></li>
           </ul>
         </div>
         <div>
-          <h4>Resources</h4>
+          <h4>Get Started</h4>
           <ul>
-            <li><a href="#">Documentation</a></li>
-            <li><a href="#">API Reference</a></li>
-            <li><a href="signup.html">Get Started</a></li>
+            <li><a href="signup.html">Open an Account</a></li>
+            <li><a href="signup.html">Get a Quote</a></li>
+            <li><a href="rates.html">Compare Rates</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        &copy; 2026 VaultSecure. This is a demo site for Rebrandly Conversion Tracking testing.
+        &copy; 2026 VaultSecure. FDIC insured. This is a demo site for Rebrandly Conversion Tracking testing.
       </div>
     </div>
   </footer>

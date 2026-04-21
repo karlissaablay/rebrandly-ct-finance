@@ -2,23 +2,17 @@
  * VaultSecure Demo Site - Rebrandly Conversion Tracking Events
  *
  * Events tracked:
- * 1. "cta_click"          — User clicks any CTA leading to signup (all pages)
- * 2. "pricing_viewed"     — User lands on the pricing page (high-intent signal)
- * 3. "industry_selected"  — User changes the industry dropdown on the signup form
- * 4. "signup"             — User submits the signup form (signup.html)
- * 5. "purchase"           — Paid plan selected, fires on thank-you page with revenue
+ * 1. "cta_click"              - User clicks "Open Account" or "Get a Quote" CTA (all pages)
+ * 2. "rates_viewed"           - User lands on rates.html (high-intent comparison shopping)
+ * 3. "account_type_selected"  - User picks an account type on the signup form
+ * 4. "application_submitted"  - User submits the application form (signup.html)
+ * 5. "application_complete"   - Final conversion fires on thank-you page
  *
  * Page views are tracked automatically by the Rebrandly SDK snippet.
  */
 
 (function () {
   "use strict";
-
-  var PLAN_PRICES = {
-    starter: 0,
-    business: 299.0,
-    enterprise: 0,
-  };
 
   // Helper: safely call trackConversion if the SDK has loaded
   function track(eventName, revenue, currency, properties) {
@@ -34,7 +28,7 @@
 
   // -----------------------------------------------------------
   // 1. CTA Click tracking (all pages)
-  //    Fires when a user clicks any primary CTA leading to signup
+  //    Fires when a user clicks "Open an Account" or "Get a Quote"
   // -----------------------------------------------------------
   document.addEventListener("click", function (e) {
     var link = e.target.closest('a[href="signup.html"]');
@@ -50,69 +44,71 @@
   });
 
   // -----------------------------------------------------------
-  // 2. Pricing page viewed (pricing.html)
-  //    High-intent signal — user is evaluating plans
+  // 2. Rates page viewed (rates.html)
+  //    High-intent signal — customer is comparison shopping
   // -----------------------------------------------------------
-  if (window.location.pathname.includes("pricing")) {
-    track("pricing_viewed", null, null, {
+  if (window.location.pathname.includes("rates")) {
+    track("rates_viewed", null, null, {
       referrer: document.referrer || "direct",
     });
   }
 
   // -----------------------------------------------------------
-  // 3. Industry selected (signup.html)
-  //    Fires when user changes the industry dropdown
+  // 3. Account type selected (signup.html)
+  //    Fires when customer picks an account type
   // -----------------------------------------------------------
-  var industrySelect = document.getElementById("industry");
-  if (industrySelect) {
-    industrySelect.addEventListener("change", function () {
-      var industry = industrySelect.value;
-      track("industry_selected", null, null, {
-        industry: industry,
-      });
+  var accountTypeSelect = document.getElementById("account-type");
+  if (accountTypeSelect) {
+    accountTypeSelect.addEventListener("change", function () {
+      var accountType = accountTypeSelect.value;
+      if (accountType) {
+        track("account_type_selected", null, null, {
+          accountType: accountType,
+        });
+      }
     });
   }
 
   // -----------------------------------------------------------
-  // 4. Signup event (signup.html)
-  //    Fires on form submission with plan and industry details
+  // 4. Application submitted (signup.html)
+  //    Fires on form submission with account type and details
   // -----------------------------------------------------------
   var signupForm = document.getElementById("signup-form");
   if (signupForm) {
     signupForm.addEventListener("submit", function (e) {
       e.preventDefault();
 
-      var planSelect = document.getElementById("plan");
-      var plan = planSelect ? planSelect.value : "business";
-      var industry = industrySelect ? industrySelect.value : "";
-      var company = document.getElementById("company").value;
+      var accountType = accountTypeSelect ? accountTypeSelect.value : "";
+      var incomeSelect = document.getElementById("income");
+      var employmentSelect = document.getElementById("employment");
+      var incomeRange = incomeSelect ? incomeSelect.value : "";
+      var employmentStatus = employmentSelect ? employmentSelect.value : "";
 
-      track("signup", null, null, {
-        plan: plan,
-        industry: industry,
-        company: company,
+      track("application_submitted", null, null, {
+        accountType: accountType,
+        incomeRange: incomeRange,
+        employmentStatus: employmentStatus,
       });
 
-      // Navigate to thank-you page with plan info
-      window.location.href = "thank-you.html?plan=" + encodeURIComponent(plan);
+      // Navigate to thank-you page with account info
+      window.location.href =
+        "thank-you.html?account_type=" + encodeURIComponent(accountType) +
+        "&income=" + encodeURIComponent(incomeRange);
     });
   }
 
   // -----------------------------------------------------------
-  // 5. Purchase event (thank-you.html)
-  //    Fires for paid plans with revenue attribution
+  // 5. Application complete (thank-you.html)
+  //    Final conversion event — customer acquisition attributed
   // -----------------------------------------------------------
   if (window.location.pathname.includes("thank-you")) {
     var params = new URLSearchParams(window.location.search);
-    var plan = params.get("plan");
+    var accountType = params.get("account_type") || "";
+    var incomeRange = params.get("income") || "";
 
-    if (plan && plan !== "starter") {
-      var revenue = PLAN_PRICES[plan] || 299.0;
-
-      track("purchase", revenue, "USD", {
-        plan: plan,
-        billingCycle: "monthly",
-      });
-    }
+    track("application_complete", 0, "USD", {
+      accountType: accountType,
+      incomeRange: incomeRange,
+    });
   }
 })();

@@ -4,6 +4,8 @@
  * A lightweight tooltip tour system that overlays on the actual demo pages.
  * Tour steps are defined per-page and highlight real elements with tooltips
  * explaining the conversion tracking setup flow.
+ *
+ * Pages: index.html (4 steps) -> rates.html (2 steps) -> signup.html (3 steps) -> thank-you.html (2 steps)
  */
 
 (function () {
@@ -19,51 +21,53 @@
         target: "head-script",
         title: "Install the Tracking Snippet",
         body:
-          'The Rebrandly SDK is installed in the <code>&lt;head&gt;</code> of every page on this site. It loads automatically and begins tracking page views — no extra code needed.' +
+          'The Rebrandly SDK is installed in the <code>&lt;head&gt;</code> of every page on this site. It loads automatically and begins tracking page views when customers visit from your Rebrandly links.' +
           '<div class="tour-code-block"><code>&lt;script\n  src="https://cdn.test.rebrandly.com/sdk/v1/rbly.min.js"\n  data-api-key="YOUR_API_KEY"&gt;\n&lt;/script&gt;</code></div>' +
-          "This single snippet is all you paste into your CMS header injection (WordPress, Squarespace, Webflow, etc.).",
+          "Paste this single snippet into your CMS header (WordPress, Squarespace, Webflow, etc.) and page views are tracked automatically.",
         position: "bottom",
         highlight: ".nav",
         stepLabel: "Install Snippet",
       },
       {
-        target: ".hero",
-        title: "Page View Tracked Automatically",
-        body: "When a visitor lands on this page via a tracked Rebrandly link, the SDK automatically records a <code>page_view</code> event. No code needed — it fires on every page where the snippet is installed.",
-        position: "bottom",
-        stepLabel: "Install Snippet",
+        target: 'a[data-cta="open-account"]',
+        title: "CTA Click Event",
+        body:
+          'When a customer clicks "Open an Account", we fire a <code>cta_click</code> event that captures which button was clicked and from which page.' +
+          '<div class="tour-code-block"><code>trackConversion({\n  eventName: \'cta_click\',\n  properties: {\n    ctaText: \'Open an Account\',\n    sourcePage: \'index.html\'\n  }\n});</code></div>',
+        position: "top",
+        stepLabel: "Custom Events",
       },
       {
-        target: 'a[href="signup.html"].btn-primary.btn-large',
-        title: "CTA Click Event",
-        body: "When a visitor clicks this CTA, we fire a <code>cta_click</code> custom event that captures which button was clicked and from which page. This helps measure intent before the actual conversion." +
-          '<div class="tour-code-block"><code>trackConversion({\n  eventName: \'cta_click\',\n  properties: {\n    ctaText: \'Get Started Free\',\n    sourcePage: \'index.html\'\n  }\n});</code></div>',
+        target: "#products-preview",
+        title: "Product Browsing Tracked",
+        body: "As customers browse products, each page view is automatically attributed to the original Rebrandly link click. No extra code needed for page view tracking — the snippet handles it.",
         position: "top",
         stepLabel: "Custom Events",
       },
       {
         target: null,
-        title: "Next: See Conversion Events",
-        body: "Now let's walk through the pages where actual conversions happen — the pricing page and signup form.<br><br>Click <strong>Next</strong> to continue the tour on the Pricing page.",
+        title: "Next: The Customer Compares Rates",
+        body: 'The customer is interested and wants to compare rates. This is a high-intent signal.<br><br>Click <strong>Next</strong> to continue the tour on the Rates page.',
         position: "center",
         stepLabel: "Custom Events",
-        nextPage: "pricing.html?tour=1&step=0",
+        nextPage: "rates.html?tour=1&step=0",
       },
     ],
 
-    "pricing.html": [
+    "rates.html": [
       {
-        target: ".pricing-card.featured",
-        title: "High-Intent Page View",
-        body: "When a visitor reaches the pricing page, we fire a <code>pricing_viewed</code> event — a high-intent signal that the visitor is evaluating plans. This is tracked as a custom conversion event on top of the automatic page view." +
-          '<div class="tour-code-block"><code>trackConversion({\n  eventName: \'pricing_viewed\',\n  properties: {\n    referrer: document.referrer\n  }\n});</code></div>',
-        position: "left",
+        target: "#rates-section",
+        title: "Rates Viewed Event",
+        body:
+          'Reaching the rates page fires a <code>rates_viewed</code> event. The customer is comparison shopping — this is a strong intent signal that they are seriously considering your products.' +
+          '<div class="tour-code-block"><code>trackConversion({\n  eventName: \'rates_viewed\',\n  properties: {\n    referrer: document.referrer\n  }\n});</code></div>',
+        position: "bottom",
         stepLabel: "Custom Events",
       },
       {
         target: null,
-        title: "Next: The Signup Form",
-        body: "The visitor picks a plan and clicks \"Start Free Trial\". Let's see what happens on the signup page.<br><br>Click <strong>Next</strong> to continue.",
+        title: "Next: The Customer Applies",
+        body: 'They like the rates and decide to apply for an account.<br><br>Click <strong>Next</strong> to continue.',
         position: "center",
         stepLabel: "Custom Events",
         nextPage: "signup.html?tour=1&step=0",
@@ -73,50 +77,55 @@
     "signup.html": [
       {
         target: "#signup-form",
-        title: "Signup Conversion Event",
-        body: "When the visitor submits this form, we fire a <code>signup</code> conversion event. It captures the selected plan, industry, and company — linking this conversion back to the original Rebrandly link click." +
-          '<div class="tour-code-block"><code>trackConversion({\n  eventName: \'signup\',\n  properties: {\n    plan: \'business\',\n    industry: \'Retail Banking\',\n    company: \'First National Bank\'\n  }\n});</code></div>',
+        title: "Application Submitted Event",
+        body:
+          'When the customer submits their application, an <code>application_submitted</code> event fires with account type, income range, and employment details.' +
+          '<div class="tour-code-block"><code>trackConversion({\n  eventName: \'application_submitted\',\n  properties: {\n    accountType: \'High-Yield Savings\',\n    incomeRange: \'$100K-$200K\',\n    employmentStatus: \'Employed\'\n  }\n});</code></div>',
         position: "right",
         stepLabel: "Custom Events",
       },
       {
-        target: "#industry",
-        title: "Industry Selection Event",
-        body: "We also track when the visitor changes the industry dropdown — an <code>industry_selected</code> event with the industry value. This lets you see which financial verticals are most interested in your product.",
+        target: "#account-type",
+        title: "Account Type Selected Event",
+        body:
+          'Selecting an account type fires an <code>account_type_selected</code> event. This lets you segment conversions by product line — see which products your links drive the most interest in.' +
+          '<div class="tour-code-block"><code>trackConversion({\n  eventName: \'account_type_selected\',\n  properties: {\n    accountType: \'High-Yield Savings\'\n  }\n});</code></div>',
         position: "right",
         stepLabel: "Custom Events",
       },
       {
         target: null,
-        title: "Next: Purchase Confirmation",
-        body: "After submitting the form, the visitor lands on the thank-you page. That's where the revenue event fires.<br><br>Click <strong>Next</strong> to see the final step.",
+        title: "Next: Application Complete",
+        body: 'After the customer submits, the final conversion fires on the confirmation page.<br><br>Click <strong>Next</strong> to see the final step.',
         position: "center",
         stepLabel: "Custom Events",
-        nextPage: "thank-you.html?tour=1&step=0&plan=business",
+        nextPage: "thank-you.html?tour=1&step=0&account_type=High-Yield%20Savings&income=%24100K-%24200K",
       },
     ],
 
     "thank-you.html": [
       {
-        target: ".success-icon",
-        title: "Purchase Event with Revenue",
-        body: "This is the money moment. On page load, we fire a <code>purchase</code> event with the revenue value attached. This is what powers the revenue attribution in the Rebrandly analytics dashboard." +
-          '<div class="tour-code-block"><code>trackConversion({\n  eventName: \'purchase\',\n  revenue: 299.00,\n  currency: \'USD\',\n  properties: {\n    plan: \'business\',\n    billingCycle: \'monthly\'\n  }\n});</code></div>',
+        target: "#success-area",
+        title: "Application Complete Event",
+        body:
+          '<code>application_complete</code> fires as the final conversion event. This customer acquisition is now fully attributed to the original Rebrandly link.' +
+          '<div class="tour-code-block"><code>trackConversion({\n  eventName: \'application_complete\',\n  revenue: 0,\n  currency: \'USD\',\n  properties: {\n    accountType: \'High-Yield Savings\',\n    incomeRange: \'$100K-$200K\'\n  }\n});</code></div>',
         position: "bottom",
         stepLabel: "Custom Events",
       },
       {
         target: null,
         title: "Full Funnel Complete!",
-        body: "<strong>That's the complete conversion tracking flow:</strong><br><br>" +
+        body:
+          "<strong>That's the complete conversion tracking flow:</strong><br><br>" +
           "1. <strong>Snippet installed</strong> in the site header<br>" +
           "2. <strong>Page views</strong> tracked automatically on every page<br>" +
           "3. <strong>CTA clicks</strong> tracked on the homepage<br>" +
-          "4. <strong>Pricing viewed</strong> as a high-intent signal<br>" +
-          "5. <strong>Industry selected</strong> on form interaction<br>" +
-          "6. <strong>Signup</strong> captured on form submit<br>" +
-          "7. <strong>Purchase</strong> with $299 revenue on confirmation<br><br>" +
-          "All attributed back to the original Rebrandly link click via <code>rbly_click_id</code>.",
+          "4. <strong>Rates viewed</strong> as a high-intent signal<br>" +
+          "5. <strong>Account type selected</strong> on form interaction<br>" +
+          "6. <strong>Application submitted</strong> on form submit<br>" +
+          "7. <strong>Application complete</strong> on confirmation page<br><br>" +
+          'All attributed back to the original Rebrandly link click via <code>rbly_click_id</code>.',
         position: "center",
         stepLabel: "Summary",
       },
@@ -311,7 +320,7 @@
     tooltip.classList.remove("tour-tooltip-center");
 
     // Calculate overall progress across all pages
-    var allPages = ["index.html", "pricing.html", "signup.html", "thank-you.html"];
+    var allPages = ["index.html", "rates.html", "signup.html", "thank-you.html"];
     var pageKey = getPageKey();
     var totalSteps = 0;
     var currentGlobal = 0;
@@ -367,7 +376,7 @@
   function updateBar(index) {
     var stepLabels = ["Install Snippet", "Custom Events", "Summary"];
     var pageKey = getPageKey();
-    var allPages = ["index.html", "pricing.html", "signup.html", "thank-you.html"];
+    var allPages = ["index.html", "rates.html", "signup.html", "thank-you.html"];
     var pageIndex = allPages.indexOf(pageKey);
 
     // Map to simplified bar steps: 0=snippet (index step 0-1), 1=events (rest), 2=summary

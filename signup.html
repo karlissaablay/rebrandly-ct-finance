@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign Up - VaultSecure</title>
+  <title>Open an Account - VaultSecure</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="tour.css">
   <!-- REBRANDLY CONVERSION TRACKING -->
@@ -20,73 +20,98 @@
       </a>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="features.html">Features</a></li>
-        <li><a href="pricing.html">Pricing</a></li>
-        <li><a href="solutions.html">Solutions</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="rates.html">Rates</a></li>
+        <li><a href="about.html">About</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- Signup Form -->
+  <!-- Application Form -->
   <section class="form-page">
     <div class="container">
       <div class="form-wrapper">
-        <h1>Start your free trial</h1>
-        <p>No credit card required. SOC 2 certified from day one.</p>
+        <h1>Open your account</h1>
+        <p>It takes about 5 minutes. We just need a few details to get you started.</p>
 
         <form id="signup-form" action="thank-you.html" method="GET">
           <div class="form-row">
             <div class="form-group">
               <label for="first-name">First name</label>
-              <input type="text" id="first-name" name="first_name" placeholder="Robert" required>
+              <input type="text" id="first-name" name="first_name" placeholder="Jessica" required>
             </div>
             <div class="form-group">
               <label for="last-name">Last name</label>
-              <input type="text" id="last-name" name="last_name" placeholder="Mitchell" required>
+              <input type="text" id="last-name" name="last_name" placeholder="Martinez" required>
             </div>
           </div>
 
           <div class="form-group">
-            <label for="email">Work email</label>
-            <input type="email" id="email" name="email" placeholder="robert@heritagenational.com" required>
+            <label for="email">Email address</label>
+            <input type="email" id="email" name="email" placeholder="jessica@email.com" required>
           </div>
 
           <div class="form-group">
-            <label for="company">Company name</label>
-            <input type="text" id="company" name="company" placeholder="Heritage National Bank">
+            <label for="phone">Phone number</label>
+            <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" required>
           </div>
 
           <div class="form-group">
-            <label for="industry">Industry</label>
-            <select id="industry" name="industry">
-              <option value="">Select your industry</option>
-              <option value="Retail Banking">Retail Banking</option>
-              <option value="Insurance">Insurance</option>
-              <option value="Wealth Management">Wealth Management</option>
-              <option value="Credit Union">Credit Union</option>
-              <option value="Mortgage">Mortgage Lending</option>
-              <option value="Other">Other Financial Services</option>
+            <label for="account-type">Account type</label>
+            <select id="account-type" name="account_type">
+              <option value="">Select account type</option>
+              <option value="Personal Checking">Personal Checking</option>
+              <option value="High-Yield Savings" selected>High-Yield Savings</option>
+              <option value="Auto Insurance Quote">Auto Insurance Quote</option>
+              <option value="Home Insurance Quote">Home Insurance Quote</option>
             </select>
           </div>
 
           <div class="form-group">
-            <label for="plan">Plan</label>
-            <select id="plan" name="plan">
-              <option value="starter">Starter (Free)</option>
-              <option value="business" selected>Business ($299/mo)</option>
-              <option value="enterprise">Enterprise (Contact Sales)</option>
+            <label for="income">Annual income range</label>
+            <select id="income" name="income">
+              <option value="">Select income range</option>
+              <option value="Under $50K">Under $50,000</option>
+              <option value="$50K-$100K">$50,000 - $100,000</option>
+              <option value="$100K-$200K">$100,000 - $200,000</option>
+              <option value="$200K+">$200,000+</option>
             </select>
           </div>
 
-          <button type="submit" class="btn btn-primary btn-large">Create Account</button>
+          <div class="form-group">
+            <label for="employment">Employment status</label>
+            <select id="employment" name="employment">
+              <option value="">Select employment status</option>
+              <option value="Employed">Employed</option>
+              <option value="Self-Employed">Self-Employed</option>
+              <option value="Retired">Retired</option>
+              <option value="Student">Student</option>
+            </select>
+          </div>
+
+          <div class="form-secure-badge">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="6" width="12" height="8" rx="1.5" stroke="#10b981" stroke-width="1.5"/><path d="M5 6V4a3 3 0 016 0v2" stroke="#10b981" stroke-width="1.5"/></svg>
+            <span>256-bit encrypted &middot; Your data is secure</span>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-large">Submit Application</button>
         </form>
 
-        <div class="form-footer">
-          Already have an account? <a href="#">Sign in</a>
+        <div class="form-fine-print">
+          FDIC insured up to $250,000. Your information is encrypted and secure. By submitting, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
         </div>
       </div>
     </div>
   </section>
+
+  <!-- Footer (minimal) -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        &copy; 2026 VaultSecure. FDIC insured. This is a demo site for Rebrandly Conversion Tracking testing.
+      </div>
+    </div>
+  </footer>
 
   <script src="app.js"></script>
   <script src="tour.js"></script>

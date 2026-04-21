@@ -10,12 +10,14 @@
   --primary-dark: #0f2340;
   --primary-light: #dbeafe;
   --accent: #d4a843;
+  --accent-dark: #c49a38;
   --text: #1e293b;
   --text-light: #64748b;
   --bg: #ffffff;
   --bg-alt: #f8fafc;
   --border: #e2e8f0;
   --success: #10b981;
+  --danger: #ef4444;
   --radius: 8px;
   --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
   --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px rgba(0,0,0,0.04);
@@ -137,7 +139,7 @@ img {
 }
 
 .btn-accent:hover {
-  background: #c49a38;
+  background: var(--accent-dark);
   color: var(--primary-dark);
 }
 
@@ -179,6 +181,23 @@ img {
   flex-wrap: wrap;
 }
 
+.hero-trust {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+
+.trust-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-light);
+}
+
 /* === Sections === */
 .section {
   padding: 80px 0;
@@ -206,46 +225,76 @@ img {
   margin: 0 auto;
 }
 
-/* === Feature Grid === */
-.feature-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 32px;
+.section-tag {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--primary-dark);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 14px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
 }
 
-.feature-card {
+/* === Product Cards (Homepage) === */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.product-card {
   background: var(--bg);
   border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 32px;
-  transition: box-shadow 0.2s;
+  padding: 28px;
+  transition: all 0.2s;
 }
 
-.feature-card:hover {
+.product-card:hover {
   box-shadow: var(--shadow-lg);
+  border-color: var(--accent);
 }
 
-.feature-icon {
-  width: 48px;
-  height: 48px;
+.product-icon {
+  width: 56px;
+  height: 56px;
   background: var(--primary-light);
-  border-radius: 10px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 16px;
-  color: var(--primary);
-  font-size: 1.4rem;
 }
 
-.feature-card h3 {
+.product-card h3 {
   font-size: 1.1rem;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
-.feature-card p {
-  color: var(--text-light);
+.product-highlight {
+  color: var(--accent-dark);
+  font-weight: 700;
   font-size: 0.95rem;
+  margin-bottom: 12px;
+}
+
+.product-card p {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+
+.product-link {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.product-link:hover {
+  color: var(--accent-dark);
 }
 
 /* === Stats === */
@@ -267,87 +316,6 @@ img {
   margin-top: 4px;
 }
 
-/* === Pricing === */
-.pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-  max-width: 960px;
-  margin: 0 auto;
-}
-
-.pricing-card {
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 36px;
-  text-align: center;
-  position: relative;
-}
-
-.pricing-card.featured {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 1px var(--accent);
-}
-
-.pricing-badge {
-  position: absolute;
-  top: -12px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--accent);
-  color: var(--primary-dark);
-  font-size: 0.75rem;
-  font-weight: 600;
-  padding: 4px 16px;
-  border-radius: 20px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.pricing-card h3 {
-  font-size: 1.2rem;
-  margin-bottom: 8px;
-}
-
-.pricing-price {
-  font-size: 2.5rem;
-  font-weight: 800;
-  margin: 16px 0;
-}
-
-.pricing-price span {
-  font-size: 1rem;
-  font-weight: 400;
-  color: var(--text-light);
-}
-
-.pricing-features {
-  list-style: none;
-  text-align: left;
-  margin: 24px 0;
-}
-
-.pricing-features li {
-  padding: 8px 0;
-  font-size: 0.9rem;
-  color: var(--text-light);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.pricing-features li::before {
-  content: "\2713";
-  color: var(--success);
-  font-weight: 700;
-}
-
-.pricing-card .btn {
-  width: 100%;
-  justify-content: center;
-}
-
 /* === Testimonials === */
 .testimonial-grid {
   display: grid;
@@ -360,6 +328,13 @@ img {
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 28px;
+}
+
+.testimonial-stars {
+  color: var(--accent);
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  letter-spacing: 2px;
 }
 
 .testimonial-card blockquote {
@@ -424,10 +399,686 @@ img {
 }
 
 .cta-banner .btn-primary:hover {
-  background: #c49a38;
+  background: var(--accent-dark);
 }
 
-/* === Forms === */
+.cta-banner .btn-accent {
+  background: #fff;
+  color: var(--primary);
+}
+
+.cta-banner .btn-accent:hover {
+  background: var(--primary-light);
+}
+
+/* === Product Detail Sections (Products page) === */
+.product-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  padding: 48px 0;
+}
+
+.product-detail:not(:last-child) {
+  border-bottom: 1px solid var(--border);
+}
+
+.product-detail.reverse {
+  direction: rtl;
+}
+
+.product-detail.reverse > * {
+  direction: ltr;
+}
+
+.product-detail-content h3 {
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+}
+
+.product-rate-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--accent) 0%, #e8c76a 100%);
+  color: var(--primary-dark);
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+}
+
+.product-detail-content p {
+  color: var(--text-light);
+  margin-bottom: 16px;
+  line-height: 1.7;
+}
+
+.product-benefits {
+  list-style: none;
+  margin-bottom: 24px;
+}
+
+.product-benefits li {
+  padding: 6px 0;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.product-benefits .check {
+  color: var(--success);
+  font-weight: 700;
+}
+
+/* Compare table in product detail */
+.product-compare {
+  margin: 24px 0;
+}
+
+.product-compare h4 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-light);
+  margin-bottom: 12px;
+}
+
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.compare-table th {
+  text-align: left;
+  padding: 8px 12px;
+  background: var(--bg-alt);
+  font-weight: 600;
+  border-bottom: 1px solid var(--border);
+}
+
+.compare-table td {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.compare-table .good {
+  color: var(--success);
+  font-weight: 700;
+}
+
+.compare-table .bad {
+  color: var(--danger);
+}
+
+/* Card mockup */
+.card-mockup {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  border-radius: 16px;
+  padding: 32px;
+  color: #fff;
+  position: relative;
+  aspect-ratio: 1.6 / 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  box-shadow: 0 20px 40px rgba(30, 58, 95, 0.3);
+}
+
+.card-mockup-chip {
+  width: 40px;
+  height: 30px;
+  background: linear-gradient(135deg, var(--accent) 0%, #e8c76a 100%);
+  border-radius: 6px;
+  position: absolute;
+  top: 32px;
+  left: 32px;
+}
+
+.card-mockup-number {
+  font-family: 'Courier New', monospace;
+  font-size: 1.1rem;
+  letter-spacing: 3px;
+  margin-bottom: 12px;
+  opacity: 0.9;
+}
+
+.card-mockup-name {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0.7;
+}
+
+.card-mockup-logo {
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: var(--accent);
+}
+
+/* Savings display */
+.savings-display {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+}
+
+.savings-label {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+.savings-amount {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.savings-interest {
+  color: var(--success);
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 16px;
+}
+
+.savings-interest span {
+  font-weight: 400;
+  color: var(--text-light);
+  font-size: 0.85rem;
+}
+
+.savings-apy {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--accent) 0%, #e8c76a 100%);
+  color: var(--primary-dark);
+  font-weight: 800;
+  font-size: 1.1rem;
+  padding: 8px 20px;
+  border-radius: 24px;
+}
+
+/* CD tiers */
+.cd-tiers {
+  display: flex;
+  gap: 16px;
+}
+
+.cd-tier {
+  flex: 1;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.cd-tier.featured {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+.cd-term {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-bottom: 8px;
+}
+
+.cd-rate {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.cd-label {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  text-transform: uppercase;
+}
+
+/* Insurance tiers */
+.insurance-tiers {
+  display: flex;
+  gap: 16px;
+}
+
+.ins-tier {
+  flex: 1;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.ins-tier.featured {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+.ins-name {
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+.ins-price {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.ins-price span {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--text-light);
+}
+
+.ins-desc {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-top: 8px;
+}
+
+/* Coverage list */
+.coverage-list {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.coverage-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+
+.coverage-item:last-child {
+  border-bottom: none;
+}
+
+.coverage-check {
+  color: var(--success);
+  font-weight: 700;
+  margin-right: 12px;
+}
+
+.coverage-val {
+  margin-left: auto;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* Renters price hero */
+.renters-price-hero {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 48px;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+}
+
+.renters-price-label {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.renters-price-amount {
+  font-size: 4rem;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1;
+}
+
+.renters-price-period {
+  font-size: 1.2rem;
+  color: var(--text-light);
+  margin-bottom: 12px;
+}
+
+.renters-price-note {
+  font-size: 0.85rem;
+  color: var(--accent-dark);
+  font-weight: 600;
+}
+
+/* === Rates Tables (Rates page) === */
+.rates-table-wrapper {
+  overflow-x: auto;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.rates-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.rates-table thead th {
+  text-align: left;
+  padding: 16px 20px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.rates-table tbody td {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+
+.rates-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.rates-table tbody tr:hover {
+  background: var(--bg-alt);
+}
+
+.rate-value {
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--primary);
+}
+
+.rate-highlight {
+  color: var(--accent-dark);
+  font-size: 1.2rem;
+}
+
+.rate-featured {
+  background: rgba(212, 168, 67, 0.05);
+}
+
+.rate-badge {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--primary-dark);
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+/* Fee comparison table */
+.rates-table.compare .good {
+  color: var(--success);
+  font-weight: 700;
+}
+
+.rates-table.compare .bad {
+  color: var(--danger);
+}
+
+.check-icon {
+  color: var(--success);
+  font-weight: 700;
+  margin-right: 4px;
+}
+
+.x-icon {
+  color: var(--danger);
+  font-weight: 700;
+  margin-right: 4px;
+}
+
+/* Insurance rate cards */
+.insurance-rate-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.ins-rate-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 32px;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.ins-rate-card:hover {
+  box-shadow: var(--shadow-lg);
+  border-color: var(--accent);
+}
+
+.ins-rate-icon {
+  margin-bottom: 16px;
+}
+
+.ins-rate-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+}
+
+.ins-rate-price {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+
+.ins-rate-price span {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--text-light);
+}
+
+.ins-rate-features {
+  list-style: none;
+  text-align: left;
+  margin-bottom: 24px;
+}
+
+.ins-rate-features li {
+  padding: 6px 0;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  position: relative;
+  padding-left: 20px;
+}
+
+.ins-rate-features li::before {
+  content: "\2713";
+  color: var(--success);
+  font-weight: 700;
+  position: absolute;
+  left: 0;
+}
+
+.ins-rate-card .btn {
+  width: 100%;
+  justify-content: center;
+}
+
+/* === About Page === */
+.about-story {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.about-story-content h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.about-story-content p {
+  color: var(--text-light);
+  margin-bottom: 16px;
+  line-height: 1.8;
+}
+
+.about-story-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.about-stat {
+  background: var(--bg-alt);
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+}
+
+.about-stat-num {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.about-stat-label {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-top: 4px;
+}
+
+/* Security grid */
+.security-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.security-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 32px;
+  text-align: center;
+}
+
+.security-icon {
+  margin-bottom: 16px;
+}
+
+.security-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.security-card p {
+  color: var(--text-light);
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+
+/* Team grid */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.team-card {
+  text-align: center;
+  padding: 32px;
+}
+
+.team-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0 auto 16px;
+}
+
+.team-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+
+.team-title {
+  color: var(--accent-dark);
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+}
+
+.team-bio {
+  color: var(--text-light);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+/* Awards grid */
+.awards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.award-badge {
+  text-align: center;
+  padding: 24px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.award-icon {
+  font-size: 2rem;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.award-text {
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+}
+
+.award-source {
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+
+/* === Forms (Signup page) === */
 .form-page {
   padding: 80px 0;
   background: var(--bg-alt);
@@ -437,7 +1088,7 @@ img {
 }
 
 .form-wrapper {
-  max-width: 480px;
+  max-width: 520px;
   margin: 0 auto;
   background: var(--bg);
   border: 1px solid var(--border);
@@ -476,6 +1127,7 @@ img {
   border-radius: var(--radius);
   font-size: 0.95rem;
   transition: border-color 0.2s;
+  background: var(--bg);
 }
 
 .form-group input:focus,
@@ -497,16 +1149,36 @@ img {
   margin-top: 8px;
 }
 
-.form-footer {
+.form-secure-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: var(--success);
+  font-weight: 600;
+  margin-bottom: 16px;
+  padding: 10px 14px;
+  background: #f0fdf4;
+  border-radius: var(--radius);
+  border: 1px solid #bbf7d0;
+}
+
+.form-fine-print {
   text-align: center;
   margin-top: 20px;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   color: var(--text-light);
+  line-height: 1.7;
+}
+
+.form-fine-print a {
+  color: var(--primary);
+  text-decoration: underline;
 }
 
 /* === Thank You / Success === */
 .success-page {
-  padding: 120px 0;
+  padding: 80px 0;
   text-align: center;
   min-height: calc(100vh - 65px);
 }
@@ -520,8 +1192,6 @@ img {
   align-items: center;
   justify-content: center;
   margin: 0 auto 24px;
-  font-size: 2.5rem;
-  color: var(--success);
 }
 
 .success-page h1 {
@@ -529,53 +1199,86 @@ img {
   margin-bottom: 12px;
 }
 
-.success-page p {
+.success-subtitle {
   color: var(--text-light);
   font-size: 1.1rem;
   max-width: 480px;
-  margin: 0 auto 32px;
+  margin: 0 auto 40px;
 }
 
-/* === Solutions / Use Cases Page === */
-.use-case-section {
+.success-timeline {
+  max-width: 560px;
+  margin: 0 auto 40px;
+  text-align: left;
+}
+
+.success-timeline h3 {
+  font-size: 1.2rem;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.timeline-steps {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: center;
-  padding: 48px 0;
+  gap: 20px;
 }
 
-.use-case-section:not(:last-child) {
-  border-bottom: 1px solid var(--border);
+.timeline-step {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
 }
 
-.use-case-section:nth-child(even) {
-  direction: rtl;
-}
-
-.use-case-section:nth-child(even) > * {
-  direction: ltr;
-}
-
-.use-case-content h3 {
-  font-size: 1.4rem;
-  margin-bottom: 12px;
-}
-
-.use-case-content p {
-  color: var(--text-light);
-  margin-bottom: 16px;
-}
-
-.use-case-visual {
-  background: var(--primary-light);
-  border-radius: 12px;
-  padding: 48px;
+.timeline-num {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 240px;
-  font-size: 3rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.timeline-content strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.timeline-content p {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+.optional-tag {
+  display: inline-block;
+  background: var(--bg-alt);
+  color: var(--text-light);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 10px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+.success-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.success-trust {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 /* === Footer === */
@@ -646,15 +1349,25 @@ img {
     grid-template-columns: 1fr 1fr;
   }
 
-  .use-case-section {
+  .product-detail {
     grid-template-columns: 1fr;
   }
 
-  .use-case-section:nth-child(even) {
+  .product-detail.reverse {
     direction: ltr;
   }
 
-  .pricing-grid {
+  .about-story {
     grid-template-columns: 1fr;
+  }
+
+  .cd-tiers,
+  .insurance-tiers {
+    flex-direction: column;
+  }
+
+  .card-mockup {
+    max-width: 320px;
+    margin: 0 auto;
   }
 }
