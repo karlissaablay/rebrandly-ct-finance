@@ -33,7 +33,7 @@
         title: "CTA Click Event",
         body:
           'When a customer clicks "Open an Account", we fire a <code>cta_click</code> event that captures which button was clicked and from which page.' +
-          '<div class="tour-code-block"><code>trackConversion({\n  eventName: \'cta_click\',\n  properties: {\n    ctaText: \'Open an Account\',\n    sourcePage: \'index.html\'\n  }\n});</code></div>',
+          '<div class="tour-code-block"><code>rbly.track(\"cta_click\", {\n  ctaText: \"Open an Account\",\n  sourcePage: \"index.html\"\n});</code></div>',
         position: "top",
         stepLabel: "Custom Events",
       },
@@ -60,7 +60,7 @@
         title: "Rates Viewed Event",
         body:
           'Reaching the rates page fires a <code>rates_viewed</code> event. The customer is comparison shopping — this is a strong intent signal that they are seriously considering your products.' +
-          '<div class="tour-code-block"><code>trackConversion({\n  eventName: \'rates_viewed\',\n  properties: {\n    referrer: document.referrer\n  }\n});</code></div>',
+          '<div class="tour-code-block"><code>rbly.track(\"rates_viewed\", {\n  referrer: document.referrer\n});</code></div>',
         position: "bottom",
         stepLabel: "Custom Events",
       },
@@ -80,7 +80,7 @@
         title: "Application Submitted Event",
         body:
           'When the customer submits their application, an <code>application_submitted</code> event fires with account type, income range, and employment details.' +
-          '<div class="tour-code-block"><code>trackConversion({\n  eventName: \'application_submitted\',\n  properties: {\n    accountType: \'High-Yield Savings\',\n    incomeRange: \'$100K-$200K\',\n    employmentStatus: \'Employed\'\n  }\n});</code></div>',
+          '<div class="tour-code-block"><code>rbly.track(\"application_submitted\", {\n  accountType: \"High-Yield Savings\",\n  incomeRange: \"$100K-$200K\",\n  employmentStatus: \"Employed\"\n});</code></div>',
         position: "right",
         stepLabel: "Custom Events",
       },
@@ -89,7 +89,7 @@
         title: "Account Type Selected Event",
         body:
           'Selecting an account type fires an <code>account_type_selected</code> event. This lets you segment conversions by product line — see which products your links drive the most interest in.' +
-          '<div class="tour-code-block"><code>trackConversion({\n  eventName: \'account_type_selected\',\n  properties: {\n    accountType: \'High-Yield Savings\'\n  }\n});</code></div>',
+          '<div class="tour-code-block"><code>rbly.track(\"account_type_selected\", {\n  accountType: \"High-Yield Savings\"\n});</code></div>',
         position: "right",
         stepLabel: "Custom Events",
       },
@@ -109,7 +109,7 @@
         title: "Application Complete Event",
         body:
           '<code>application_complete</code> fires as the final conversion event. This customer acquisition is now fully attributed to the original Rebrandly link.' +
-          '<div class="tour-code-block"><code>trackConversion({\n  eventName: \'application_complete\',\n  revenue: 0,\n  currency: \'USD\',\n  properties: {\n    accountType: \'High-Yield Savings\',\n    incomeRange: \'$100K-$200K\'\n  }\n});</code></div>',
+          '<div class="tour-code-block"><code>rbly.track(\"application_complete\", {\n  accountType: \"High-Yield Savings\",\n  incomeRange: \"$100K-$200K\"\n});</code></div>',
         position: "bottom",
         stepLabel: "Custom Events",
       },
